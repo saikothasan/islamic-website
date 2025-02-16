@@ -2,8 +2,6 @@ import type { Metadata } from "next"
 import { constructMetadata } from "../metadata.config"
 import { ZakatCalculator } from "./zakat-calculator"
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
-import { translations } from "@/lib/translations"
-import { useLanguage } from "@/lib/language-context"
 
 export const metadata: Metadata = constructMetadata({
   title: "Zakat Calculator",
@@ -12,38 +10,43 @@ export const metadata: Metadata = constructMetadata({
 })
 
 export default function ZakatPage() {
-  const { language } = useLanguage()
-  const t = translations[language]
-
   return (
     <div className="container py-8">
       <div className="mb-8">
-        <h1 className="text-4xl font-bold mb-2">{t.zakatCalculator}</h1>
-        <p className="text-muted-foreground">{t.zakatDescription}</p>
+        <h1 className="text-4xl font-bold mb-2">Zakat Calculator</h1>
+        <p className="text-muted-foreground">Calculate your Zakat easily with our comprehensive Zakat calculator</p>
       </div>
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mb-8">
         <Card>
           <CardHeader>
-            <CardTitle>{t.whatIsZakat}</CardTitle>
+            <CardTitle>What is Zakat?</CardTitle>
           </CardHeader>
           <CardContent>
-            <p>{t.zakatDefinition}</p>
+            <p>
+              Zakat is one of the Five Pillars of Islam. It's a form of obligatory charity that has the potential to
+              ease the suffering of millions.
+            </p>
           </CardContent>
         </Card>
         <Card>
           <CardHeader>
-            <CardTitle>{t.whoShouldPayZakat}</CardTitle>
+            <CardTitle>Who should pay Zakat?</CardTitle>
           </CardHeader>
           <CardContent>
-            <p>{t.zakatObligation}</p>
+            <p>
+              Zakat is due on adult Muslims of sound mind who have wealth above a minimum amount known as the nisab.
+            </p>
           </CardContent>
         </Card>
         <Card>
           <CardHeader>
-            <CardTitle>{t.whenToPayZakat}</CardTitle>
+            <CardTitle>When to pay Zakat?</CardTitle>
           </CardHeader>
           <CardContent>
-            <p>{t.zakatTiming}</p>
+            <p>
+              Zakat is typically paid once a year on a date chosen by the individual. Many choose to pay during Ramadan
+              for increased blessings.
+            </p>
           </CardContent>
         </Card>
       </div>
